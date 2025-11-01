@@ -1,6 +1,6 @@
+import Banner from "./components/Banner"
 import Footer from "./components/Footer"
 import NavbarPage from "./components/NavbarPage"
-
 
 function App() {
   return (
@@ -8,8 +8,9 @@ function App() {
       <header>
         <NavbarPage></NavbarPage>
       </header>
-      <h1>Hola mundo!</h1>
-      <main></main>
+      <main>
+        <Banner></Banner>
+      </main>
       <Footer />
     </>
   )

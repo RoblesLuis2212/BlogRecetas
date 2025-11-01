@@ -6,3 +6,19 @@
 main{
     flex-grow: 1;
 }
+.banner-section{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.banner-image{
+    height: 500px;
+    object-fit: cover;
+}
+
+/*media query para dispositivos mobile*/
+@media(max-width: 576px){
+    .banner-image{
+        height: 300px;
+    }
+}
