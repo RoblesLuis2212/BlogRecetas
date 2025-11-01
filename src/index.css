@@ -20,7 +20,10 @@ main{
     width: 170px;
     height: 320px;
 }
-
+.img-recetas{
+    width: 140px;
+    height: 260px;
+}
 /*media query para dispositivos mobile*/
 @media(max-width: 576px){
     .banner-image{
