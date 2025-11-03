@@ -7,10 +7,10 @@ const CardRecetas = ({ imagen, nombrePlato, descripcion }) => {
             <Card.Img src={imagen} className='img-recetas' />
             <Card.Body>
                 <Card.Title>{nombrePlato}</Card.Title>
-                <Card.Text>
+                <Card.Text className='text-truncate' style={{ maxWidth: "300px" }}>
                     {descripcion}
                 </Card.Text>
-                <Button variant="primary">Ver Más</Button>
+                <Button variant="primary" className='w-100'>Ver Más</Button>
             </Card.Body >
         </Card >
     );
