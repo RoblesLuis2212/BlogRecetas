@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';;
 import Form from 'react-bootstrap/Form';
 
-const ModalLogin = ({ handleShow, show, handleClose }) => {
+const ModalLogin = ({ handleShow, show, handleClose, handleShowRegister }) => {
     return (
         <>
             <Modal show={show} onHide={handleClose} size='lg' dialogClassName='modal-login'>
@@ -27,9 +27,11 @@ const ModalLogin = ({ handleShow, show, handleClose }) => {
                                     <Form.Label>Contraseña</Form.Label>
                                     <Form.Control type="password" placeholder="ingrese su contraseña" />
                                 </Form.Group>
+
                                 <Button variant="success" type="submit" className='w-100'>
                                     Iniciar Sesion
                                 </Button>
+                                <p className='text-center mt-2'>¿No tienes una cuenta?<Button variant='link' className='mb-1 p-0 ms-1' onClick={handleShowRegister}>Registrate</Button></p>
                                 {/* Boton para dispositivo mobile */}
                                 <Button variant='success' onClick={handleClose} className='w-100 mt-2 mb-3 d-lg-none'>Atras</Button>
                             </Form>
