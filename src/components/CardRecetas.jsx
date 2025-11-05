@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router';
 
 const CardRecetas = ({ imagen, nombrePlato, descripcion }) => {
     return (
@@ -10,7 +11,7 @@ const CardRecetas = ({ imagen, nombrePlato, descripcion }) => {
                 <Card.Text className='text-truncate' style={{ maxWidth: "300px" }}>
                     {descripcion}
                 </Card.Text>
-                <Button variant="primary" className='w-100'>Ver Más</Button>
+                <Button variant="primary" as={Link} to="/detalle" className='w-100'>Ver Más</Button>
             </Card.Body >
         </Card >
     );

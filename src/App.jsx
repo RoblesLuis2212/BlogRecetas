@@ -5,6 +5,7 @@ import Footer from "./components/Footer"
 import NavbarPage from "./components/NavbarPage"
 import Recetas from "./components/Recetas"
 import RegistroUsuarios from "./components/RegistroUsuarios"
+import DetalleRecetas from "./components/DetalleRecetas"
 
 function App() {
   return (
@@ -31,6 +32,11 @@ function App() {
             <Route
               path="/registro"
               element={<RegistroUsuarios />}
+            ></Route>
+            {/* Pagina detalle de recetas */}
+            <Route
+              path="/detalle"
+              element={<DetalleRecetas></DetalleRecetas>}
             ></Route>
           </Routes>
         </main>

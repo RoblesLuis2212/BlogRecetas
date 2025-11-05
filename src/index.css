@@ -40,6 +40,9 @@ main{
     height: 100%;
     border-radius: 5px;
 }
+.detalle-recetas{
+    background-color: #fff8e7;
+}
 /*media query para dispositivos mobile*/
 @media(max-width: 576px){
     .banner-image{
