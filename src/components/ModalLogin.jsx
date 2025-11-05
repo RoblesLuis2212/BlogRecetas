@@ -2,8 +2,17 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';;
 import Form from 'react-bootstrap/Form';
+import { Link, useNavigate } from 'react-router';
 
 const ModalLogin = ({ handleShow, show, handleClose, handleShowRegister }) => {
+    const navigate = useNavigate();
+
+    const paginaRegistro = () => {
+        handleClose();
+        navigate("/registro");
+    }
+
+
     return (
         <>
             <Modal show={show} onHide={handleClose} size='lg' dialogClassName='modal-login'>
@@ -31,7 +40,7 @@ const ModalLogin = ({ handleShow, show, handleClose, handleShowRegister }) => {
                                 <Button variant="success" type="submit" className='w-100'>
                                     Iniciar Sesion
                                 </Button>
-                                <p className='text-center mt-2'>¿No tienes una cuenta?<Button variant='link' className='mb-1 p-0 ms-1' onClick={handleShowRegister}>Registrate</Button></p>
+                                <p className='text-center mt-2'>¿No tienes una cuenta?<Button variant='link' className='mb-1 p-0 ms-1' onClick={paginaRegistro}>Registrate</Button></p>
                                 {/* Boton para dispositivo mobile */}
                                 <Button variant='success' onClick={handleClose} className='w-100 mt-2 mb-3 d-lg-none'>Atras</Button>
                             </Form>

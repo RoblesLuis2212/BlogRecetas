@@ -34,6 +34,12 @@ main{
   width: 90%;
   margin: auto;
 }
+.img-registro{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
 /*media query para dispositivos mobile*/
 @media(max-width: 576px){
     .banner-image{
