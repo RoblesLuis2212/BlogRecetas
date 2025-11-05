@@ -54,7 +54,7 @@ const ModalLogin = ({ handleShow, show, handleClose, handleShowRegister }) => {
                                             required: "este campo es obligatorio",
                                             pattern: {
                                                 value: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])\S{8,64}$/,
-                                                message: "la contraseña debe contener al menos 8 caracteres, una mayuscula, una minuscula y un numero"
+                                                message: "contraseña no valida"
                                             }
                                         })}
                                         onChange={() => clearErrors("password")}
