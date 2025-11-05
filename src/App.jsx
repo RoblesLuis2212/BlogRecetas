@@ -6,6 +6,8 @@ import NavbarPage from "./components/NavbarPage"
 import Recetas from "./components/Recetas"
 import RegistroUsuarios from "./components/RegistroUsuarios"
 import DetalleRecetas from "./components/DetalleRecetas"
+import Administrador from "./components/Administrador"
+import FormularioReceta from "./components/FormularioReceta"
 
 function App() {
   return (
@@ -38,6 +40,19 @@ function App() {
               path="/detalle"
               element={<DetalleRecetas></DetalleRecetas>}
             ></Route>
+            <Route
+              path="/administrador"
+              element={<Administrador></Administrador>}
+            ></Route>
+            <Route
+              path="/administrador/crear"
+              element={<FormularioReceta titulo="Crear Receta"></FormularioReceta>}
+            >
+            </Route>
+            <Route
+              path="/administrador/editar/:id"
+              element={<FormularioReceta titulo="Editar Receta"></FormularioReceta>}
+            ></Route>
           </Routes>
         </main>
         <Footer />
@@ -46,4 +61,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
