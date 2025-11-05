@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Button } from 'react-bootstrap';
 import ModalLogin from './ModalLogin';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const NavbarPage = () => {
     //Estado para abrir el modal login
@@ -14,6 +14,9 @@ const NavbarPage = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    //Funcion para verificar en que pagina nos encontramos
+    const location = useLocation();
+    const registro = location.pathname === "/registro";
 
     return (
         <>
@@ -31,10 +34,15 @@ const NavbarPage = () => {
                         <Nav className='ms-auto'>
                             {/*En dispositivos medianos en adelante mostramos botones */}
                             <Button className='btn btn-success d-none d-lg-block me-2' onClick={handleShow}>Iniciar Sesion</Button>
-                            <Button variant='outline-dark d-none d-md-block' as={Link} onClick={handleClose} to="/registro">Registrarse</Button>
+                            {/* aplicamos un renderizado condicional, ocultamos el boton en caso de encontrarnos en la pagina de registro */}
+                            {!registro && (
+                                <Button variant='outline-dark d-none d-md-block' as={Link} onClick={handleClose} to="/registro">Registrarse</Button>
+                            )}
                             {/* En dispositivos mobile mostramos links */}
                             <Nav.Link className='d-lg-none' onClick={handleShow}>Iniciar Sesion</Nav.Link>
-                            <Nav.Link className='d-lg-none' as={Link} to="/registro">Registrarse</Nav.Link>
+                            {!registro && (
+                                <Nav.Link className='d-lg-none' as={Link} to="/registro">Registrarse</Nav.Link>
+                            )}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
