@@ -11,6 +11,7 @@ const TablaRecetas = () => {
                     <th>Preparacion</th>
                     <th>Imagen</th>
                     <th>Categoria</th>
+                    <th>Ingredientes</th>
                     <th>Acciones</th>
                 </tr>
             </thead>

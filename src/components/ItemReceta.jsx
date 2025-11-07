@@ -13,6 +13,7 @@ const ItemReceta = () => {
                 <img src="" alt="imagen comida" />
             </td>
             <td>Guarnicion</td>
+            <td>papas, carne, cebolla</td>
             <td>
                 <div className='d-flex'>
                     <Button className='btn btn-warning me-2' as={Link} to={`editar/${parametroPrueba}`}>

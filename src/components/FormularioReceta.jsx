@@ -48,14 +48,19 @@ const FormularioReceta = ({ titulo }) => {
                     <Form.Select>
                         <option value="">Seleccione una categoria</option>
                         <option value="">Platos Principales</option>
-                        <option value="">Gaurnicion</option>
                         <option value="">Postres</option>
                         <option value="">Desayunos</option>
+                        <option value="">Bebidas</option>
                     </Form.Select>
                     <Form.Text>
                         aqui se mostrara el mensaje de error
                     </Form.Text>
                 </Form.Group>
+                <Form.Group className='mb-3'>
+                    <Form.Label>Ingredientes</Form.Label>
+                    <Form.Control type='text' placeholder='ej: papas, cebolla, zanahoria, pimiento'></Form.Control>
+                </Form.Group>
+                <Form.Text className='text-danger'></Form.Text>
                 <Button variant="success" type="submit">
                     Editar
                 </Button>
