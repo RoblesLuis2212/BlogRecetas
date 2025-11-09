@@ -14,6 +14,13 @@ import { listarRecetasAPI, obtenerRecetaIDAPI } from "./helpers/queries.js"
 function App() {
   const [recetas, setRecetas] = useState([]);
 
+  const sesionUsuario = JSON.parse(sessionStorage.getItem("usuarioKey")) || {};
+  const [usuarioLogueado, setUsuarioLogueado] = useState(sesionUsuario);
+
+  useEffect(() => {
+    sessionStorage.setItem("usuarioKey", JSON.stringify(usuarioLogueado))
+  }, [usuarioLogueado])
+
   useEffect(() => {
     obtenerRecetas()
   }, [])
@@ -31,7 +38,7 @@ function App() {
     <>
       <BrowserRouter>
         <header>
-          <NavbarPage></NavbarPage>
+          <NavbarPage usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado}></NavbarPage>
         </header>
         <main>
           {/* Pagina principal */}

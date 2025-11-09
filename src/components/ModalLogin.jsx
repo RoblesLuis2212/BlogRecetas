@@ -4,8 +4,10 @@ import Modal from 'react-bootstrap/Modal';;
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
+import { login } from '../helpers/queries';
+import Swal from 'sweetalert2';
 
-const ModalLogin = ({ handleShow, show, handleClose, handleShowRegister }) => {
+const ModalLogin = ({ handleShow, show, handleClose, handleShowRegister, setUsuarioLogueado }) => {
     const navigate = useNavigate();
 
     const paginaRegistro = () => {
@@ -15,9 +17,35 @@ const ModalLogin = ({ handleShow, show, handleClose, handleShowRegister }) => {
 
     const { register, handleSubmit, formState: { errors }, reset, clearErrors } = useForm();
 
-    const postValidaciones = (data) => {
+    const postValidaciones = async (data) => {
+        const respuesta = await login(data);
+        if (respuesta.status === 200) {
+            const datos = await respuesta.json();
+            setUsuarioLogueado({
+                usuario: datos.usuario,
+                token: datos.token
+            });
+            Swal.fire({
+                icon: 'success',
+                title: '¡Inicio de sesión exitoso!',
+                text: `Bienvenido ${datos.usuario}`,
+                showConfirmButton: false,
+                timer: 2000, // se cierra automáticamente en 2 segundos
+                timerProgressBar: true
+            });
+            navigate("/administrador");
+            handleClose();
+            reset();
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al iniciar sesión',
+                text: "Datos incorrectos",
+                confirmButtonText: 'Intentar de nuevo'
+            });
+
+        }
         console.log(data);
-        reset();
     }
     return (
         <>

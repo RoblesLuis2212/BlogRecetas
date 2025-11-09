@@ -7,7 +7,7 @@ import ModalLogin from './ModalLogin';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 
-const NavbarPage = () => {
+const NavbarPage = ({ usuarioLogueado, setUsuarioLogueado }) => {
     //Estado para abrir el modal login
     const [show, setShow] = useState(false);
 
@@ -17,6 +17,14 @@ const NavbarPage = () => {
     //Funcion para verificar en que pagina nos encontramos
     const location = useLocation();
     const registro = location.pathname === "/registro";
+
+    const navigate = useNavigate();
+
+    const cerrarSesion = () => {
+        sessionStorage.removeItem("usuarioKey");
+        setUsuarioLogueado(null);
+        navigate("/");
+    }
 
     return (
         <>
@@ -32,11 +40,21 @@ const NavbarPage = () => {
                         </Nav>
                         <hr className='m-0' />
                         <Nav className='ms-auto'>
-                            {/*En dispositivos medianos en adelante mostramos botones */}
-                            <Button className='btn btn-success d-none d-lg-block me-2' onClick={handleShow}>Iniciar Sesion</Button>
-                            {/* aplicamos un renderizado condicional, ocultamos el boton en caso de encontrarnos en la pagina de registro */}
-                            {!registro && (
-                                <Button variant='outline-dark d-none d-md-block' as={Link} onClick={handleClose} to="/registro">Registrarse</Button>
+                            {usuarioLogueado ? (
+                                <>
+                                    <Link className="navbar-text text-secondary me-3" to={"/administrador"}>{usuarioLogueado.usuario}</Link>
+                                    <Button className='btn btn-danger' onClick={cerrarSesion}>Cerrar Sesion</Button>
+
+                                </>
+                            ) : (
+                                <>
+                                    {/*En dispositivos medianos en adelante mostramos botones */}
+                                    <Button className='btn btn-success d-none d-lg-block me-2' onClick={handleShow}>Iniciar Sesion</Button>
+                                    {/* aplicamos un renderizado condicional, ocultamos el boton en caso de encontrarnos en la pagina de registro */}
+                                    {!registro && (
+                                        <Button variant='outline-dark d-none d-md-block' as={Link} onClick={handleClose} to="/registro">Registrarse</Button>
+                                    )}
+                                </>
                             )}
                             {/* En dispositivos mobile mostramos links */}
                             <Nav.Link className='d-lg-none' onClick={handleShow}>Iniciar Sesion</Nav.Link>
@@ -47,7 +65,7 @@ const NavbarPage = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar >
-            <ModalLogin handleShow={handleShow} show={show} handleClose={handleClose}></ModalLogin>
+            <ModalLogin handleShow={handleShow} show={show} handleClose={handleClose} setUsuarioLogueado={setUsuarioLogueado} ></ModalLogin>
         </>
     );
 };

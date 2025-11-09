@@ -2,12 +2,30 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
+import { crearReceta } from '../helpers/queries.js';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const FormularioReceta = ({ titulo }) => {
+    const navigate = useNavigate();
 
     const { register, handleSubmit, reset, formState: { errors }, clearErrors } = useForm();
 
-    const postValidaciones = (data) => {
+    const postValidaciones = async (data) => {
+        if (titulo === "Crear Receta") {
+            const respuesta = await crearReceta(data);
+            if (respuesta.status === 201) {
+                Swal.fire({
+                    title: "Receta creada exitosamente!",
+                    icon: "success",
+                    draggable: true
+                });
+                navigate("/administrador");
+                reset();
+            } else {
+                alert("Ocurrio un error al crear la receta")
+            }
+        }
         console.log(data);
     }
 
