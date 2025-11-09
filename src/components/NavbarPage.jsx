@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 import ModalLogin from './ModalLogin';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
+import FormularioRegistro from './FormularioRegistro';
 
 const NavbarPage = ({ usuarioLogueado, setUsuarioLogueado }) => {
     //Estado para abrir el modal login

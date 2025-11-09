@@ -1,14 +1,32 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
+import { registroUsuario } from '../helpers/queries.js';
+import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const FormularioRegistro = () => {
 
     const { register, handleSubmit, formState: { errors }, reset, clearErrors } = useForm();
 
-    const postValidaciones = (data) => {
-        console.log(data);
-        reset();
+    const navigate = useNavigate();
+
+    const postValidaciones = async (data) => {
+        const respuesta = await registroUsuario(data);
+        if (respuesta.status === 201) {
+            const data = await respuesta.json();
+            Swal.fire({
+                icon: 'success',
+                title: '¡Registro exitoso!',
+                showConfirmButton: false,
+                timer: 2000, // se cierra automáticamente en 2 segundos
+                timerProgressBar: true
+            });
+            navigate("/");
+            reset();
+        } else {
+            alert("ocurrio un error al registrar el usuario")
+        }
     }
 
     return (
