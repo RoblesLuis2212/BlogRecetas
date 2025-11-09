@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router"
+import { BrowserRouter, Route, Routes, useParams } from "react-router"
 import Banner from "./components/Banner"
 import Categorias from "./components/Categorias"
 import Footer from "./components/Footer"
@@ -8,8 +8,25 @@ import RegistroUsuarios from "./components/RegistroUsuarios"
 import DetalleRecetas from "./components/DetalleRecetas"
 import Administrador from "./components/Administrador"
 import FormularioReceta from "./components/FormularioReceta"
+import { useState, useEffect, useEffectEvent } from "react"
+import { listarRecetasAPI, obtenerRecetaIDAPI } from "./helpers/queries.js"
 
 function App() {
+  const [recetas, setRecetas] = useState([]);
+
+  useEffect(() => {
+    obtenerRecetas()
+  }, [])
+
+
+  const obtenerRecetas = async () => {
+    const respuesta = await listarRecetasAPI();
+    if (respuesta.status === 200) {
+      const datos = await respuesta.json();
+      setRecetas(datos);
+    }
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -25,7 +42,7 @@ function App() {
                 <>
                   <Banner></Banner>
                   <Categorias></Categorias>
-                  <Recetas></Recetas>
+                  <Recetas recetas={recetas}></Recetas>
                 </>
               }
             >
@@ -37,12 +54,12 @@ function App() {
             ></Route>
             {/* Pagina detalle de recetas */}
             <Route
-              path="/detalle"
+              path="/detalle/:id"
               element={<DetalleRecetas></DetalleRecetas>}
             ></Route>
             <Route
               path="/administrador"
-              element={<Administrador></Administrador>}
+              element={<Administrador recetas={recetas}></Administrador>}
             ></Route>
             <Route
               path="/administrador/crear"

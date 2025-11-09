@@ -4,20 +4,20 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { listarRecetasAPI } from '../helpers/queries.js';
 
-const Administrador = () => {
-    const [recetas, setRecetas] = useState([]);
+const Administrador = ({ recetas }) => {
+    // const [recetas, setRecetas] = useState([]);
 
-    useEffect(() => {
-        obtenerRecetas()
-    }, [])
+    // useEffect(() => {
+    //     obtenerRecetas()
+    // }, [])
 
-    const obtenerRecetas = async () => {
-        const respuesta = await listarRecetasAPI();
-        if (respuesta.status === 200) {
-            const datos = await respuesta.json();
-            setRecetas(datos);
-        }
-    }
+    // const obtenerRecetas = async () => {
+    //     const respuesta = await listarRecetasAPI();
+    //     if (respuesta.status === 200) {
+    //         const datos = await respuesta.json();
+    //         setRecetas(datos);
+    //     }
+    // }
 
 
     return (

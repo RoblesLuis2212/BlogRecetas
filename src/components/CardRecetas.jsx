@@ -2,16 +2,16 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router';
 
-const CardRecetas = ({ imagen, nombrePlato, descripcion }) => {
+const CardRecetas = ({ itemReceta }) => {
     return (
         <Card className='h-100'>
-            <Card.Img src={imagen} className='img-recetas' />
+            <Card.Img src={itemReceta.imagen} className='img-recetas' />
             <Card.Body>
-                <Card.Title>{nombrePlato}</Card.Title>
+                <Card.Title>{itemReceta.nombreReceta}</Card.Title>
                 <Card.Text className='text-truncate' style={{ maxWidth: "300px" }}>
-                    {descripcion}
+                    {itemReceta.descripcion}
                 </Card.Text>
-                <Button variant="primary" as={Link} to="/detalle" className='w-100'>Ver Más</Button>
+                <Button variant="primary" as={Link} to={`detalle/${itemReceta._id}`} className='w-100'>Ver Más</Button>
             </Card.Body >
         </Card >
     );

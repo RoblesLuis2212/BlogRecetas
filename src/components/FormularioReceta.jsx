@@ -58,7 +58,7 @@ const FormularioReceta = ({ titulo }) => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Ingredientes</Form.Label>
-                    <Form.Control type="text" placeholder="ej: batir la crema, luego colocar en la heladera por dos horas, por ultimo disfrutar"
+                    <Form.Control type="text" placeholder="ej: frutilla, crema, leche"
                         {...register("ingredientes", {
                             required: "Este campo es obligatorio",
                             minLength: {

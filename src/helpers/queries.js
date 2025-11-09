@@ -10,3 +10,14 @@ export const listarRecetasAPI = async () => {
     return null;
   }
 };
+
+export const obtenerRecetaIDAPI = async (id) => {
+  try {
+    const respuesta = await fetch(`${recetasBackend}/${id}`);
+    console.log(respuesta);
+    return respuesta;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};
