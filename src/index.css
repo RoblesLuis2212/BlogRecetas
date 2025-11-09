@@ -43,6 +43,11 @@ main{
 .detalle-recetas{
     background-color: #fff8e7;
 }
+.img-recetaAdmin{
+    width: 200px;
+    height: 180px;
+    border-radius: 10px;
+}
 /*media query para dispositivos mobile*/
 @media(max-width: 576px){
     .banner-image{

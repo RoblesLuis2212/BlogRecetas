@@ -1,19 +1,19 @@
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router';
 
-const ItemReceta = () => {
+const ItemReceta = ({ itemReceta }) => {
     const parametroPrueba = "art";
 
     return (
         <tr>
-            <td>Pastel de papas</td>
-            <td>Un delicioso platillo para disfrutar con tu familia, especial para los amantes de las comidas al horno.</td>
-            <td>Preparar los ingredientes mencionados</td>
+            <td>{itemReceta.nombreReceta}</td>
+            <td>{itemReceta.descripcion}</td>
+            <td>{itemReceta.preparacion}</td>
             <td>
-                <img src="" alt="imagen comida" />
+                <img src={itemReceta.imagen} alt="imagen comida" className='img-recetaAdmin' />
             </td>
-            <td>Guarnicion</td>
-            <td>papas, carne, cebolla</td>
+            <td>{itemReceta.categoria}</td>
+            <td>{itemReceta.ingredientes}</td>
             <td>
                 <div className='d-flex'>
                     <Button className='btn btn-warning me-2' as={Link} to={`editar/${parametroPrueba}`}>
