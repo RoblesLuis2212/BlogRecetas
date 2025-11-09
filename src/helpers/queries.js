@@ -72,3 +72,18 @@ export const registroUsuario = async (usuario) => {
     return null;
   }
 };
+
+export const eliminarRecetaAPI = async (id) => {
+  try {
+    const respuesta = await fetch(`${recetasBackend}/${id}`, {
+      method: "DELETE",
+      headers: {
+        "x-token": JSON.parse(sessionStorage.getItem("usuarioKey")).token,
+      },
+    });
+    return respuesta;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};

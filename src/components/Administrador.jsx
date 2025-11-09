@@ -4,22 +4,21 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { listarRecetasAPI } from '../helpers/queries.js';
 
-const Administrador = ({ recetas }) => {
-    // const [recetas, setRecetas] = useState([]);
+const Administrador = () => {
+    const [recetas, setRecetas] = useState([]);
 
-    // useEffect(() => {
-    //     obtenerRecetas()
-    // }, [])
+    useEffect(() => {
+        obtenerRecetas()
+    }, [])
 
-    // const obtenerRecetas = async () => {
-    //     const respuesta = await listarRecetasAPI();
-    //     if (respuesta.status === 200) {
-    //         const datos = await respuesta.json();
-    //         setRecetas(datos);
-    //     }
-    // }
-
-
+    const obtenerRecetas = async () => {
+        const respuesta = await listarRecetasAPI();
+        if (respuesta.status === 200) {
+            const datos = await respuesta.json();
+            console.log(datos);
+            setRecetas(datos);
+        }
+    }
     return (
         <section className='container'>
             <div className='d-flex align-items-start'>
@@ -29,7 +28,7 @@ const Administrador = ({ recetas }) => {
                     <i className="bi bi-plus"></i>
                 </Button>
             </div>
-            <TablaRecetas recetas={recetas}></TablaRecetas>
+            <TablaRecetas recetas={recetas} setRecetas={setRecetas}></TablaRecetas>
         </section>
     );
 };

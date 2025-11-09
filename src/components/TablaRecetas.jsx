@@ -1,7 +1,7 @@
 import { Table } from 'react-bootstrap';
 import ItemReceta from './ItemReceta';
 
-const TablaRecetas = ({ recetas }) => {
+const TablaRecetas = ({ recetas, setRecetas }) => {
     return (
         <Table responsive>
             <thead>
@@ -17,7 +17,7 @@ const TablaRecetas = ({ recetas }) => {
             </thead>
             <tbody>
                 {recetas.map((itemReceta) => (
-                    <ItemReceta itemReceta={itemReceta} key={itemReceta._id}></ItemReceta>
+                    <ItemReceta itemReceta={itemReceta} setRecetas={setRecetas} key={itemReceta._id}></ItemReceta>
                 ))}
             </tbody>
         </Table>

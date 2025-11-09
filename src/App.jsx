@@ -70,11 +70,11 @@ function App() {
               element={<ProtectorAdmin usuarioLogueado={usuarioLogueado}></ProtectorAdmin>}
             >
               <Route index
-                element={<Administrador recetas={recetas}></Administrador>}
+                element={<Administrador></Administrador>}
               ></Route>
               <Route
                 path="crear"
-                element={<FormularioReceta titulo="Crear Receta" obtenerRecetas={obtenerRecetas}></FormularioReceta>}
+                element={<FormularioReceta titulo="Crear Receta"></FormularioReceta>}
               >
               </Route>
               <Route

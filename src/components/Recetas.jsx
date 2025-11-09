@@ -7,7 +7,7 @@ const Recetas = ({ recetas }) => {
             <div className="row">
                 {recetas.map((itemReceta) => (
                     <div className="col-12 col-md-4 col-lg-3 mt-3 mt-md-2" key={itemReceta._id}>
-                        <CardRecetas itemReceta={itemReceta} recetas={recetas} ></CardRecetas>
+                        <CardRecetas itemReceta={itemReceta} recetas={recetas}></CardRecetas>
                     </div>
                 ))}
             </div>

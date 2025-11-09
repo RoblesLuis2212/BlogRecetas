@@ -6,7 +6,7 @@ import { crearReceta } from '../helpers/queries.js';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
 
-const FormularioReceta = ({ titulo, obtenerRecetas }) => {
+const FormularioReceta = ({ titulo }) => {
     const navigate = useNavigate();
 
     const { register, handleSubmit, reset, formState: { errors }, clearErrors } = useForm();
@@ -20,7 +20,6 @@ const FormularioReceta = ({ titulo, obtenerRecetas }) => {
                     icon: "success",
                     draggable: true
                 })
-                await obtenerRecetas();
                 navigate("/administrador");
                 reset();
             } else {
