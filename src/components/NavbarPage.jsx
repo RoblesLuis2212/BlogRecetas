@@ -23,7 +23,7 @@ const NavbarPage = ({ usuarioLogueado, setUsuarioLogueado }) => {
 
     const cerrarSesion = () => {
         sessionStorage.removeItem("usuarioKey");
-        setUsuarioLogueado(null);
+        setUsuarioLogueado({});
         navigate("/");
     }
 
@@ -41,7 +41,7 @@ const NavbarPage = ({ usuarioLogueado, setUsuarioLogueado }) => {
                         </Nav>
                         <hr className='m-0' />
                         <Nav className='ms-auto'>
-                            {usuarioLogueado ? (
+                            {usuarioLogueado.usuario ? (
                                 <>
                                     <Link className="navbar-text text-secondary me-3" to={"/administrador"}>{usuarioLogueado.usuario}</Link>
                                     <Button className='btn btn-danger' onClick={cerrarSesion}>Cerrar Sesion</Button>

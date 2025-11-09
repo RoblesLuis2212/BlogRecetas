@@ -29,6 +29,7 @@ export const crearReceta = async (receta) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem("usuarioKey")).token,
       },
       body: JSON.stringify(receta),
     });

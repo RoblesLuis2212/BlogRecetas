@@ -10,6 +10,7 @@ import Administrador from "./components/Administrador"
 import FormularioReceta from "./components/FormularioReceta"
 import { useState, useEffect, useEffectEvent } from "react"
 import { listarRecetasAPI, obtenerRecetaIDAPI } from "./helpers/queries.js"
+import ProtectorAdmin from "./routes/ProtectorAdmin.jsx"
 
 function App() {
   const [recetas, setRecetas] = useState([]);
@@ -66,17 +67,21 @@ function App() {
             ></Route>
             <Route
               path="/administrador"
-              element={<Administrador recetas={recetas}></Administrador>}
-            ></Route>
-            <Route
-              path="/administrador/crear"
-              element={<FormularioReceta titulo="Crear Receta"></FormularioReceta>}
+              element={<ProtectorAdmin usuarioLogueado={usuarioLogueado}></ProtectorAdmin>}
             >
+              <Route index
+                element={<Administrador recetas={recetas}></Administrador>}
+              ></Route>
+              <Route
+                path="crear"
+                element={<FormularioReceta titulo="Crear Receta" obtenerRecetas={obtenerRecetas}></FormularioReceta>}
+              >
+              </Route>
+              <Route
+                path="editar/:id"
+                element={<FormularioReceta titulo="Editar Receta"></FormularioReceta>}
+              ></Route>
             </Route>
-            <Route
-              path="/administrador/editar/:id"
-              element={<FormularioReceta titulo="Editar Receta"></FormularioReceta>}
-            ></Route>
           </Routes>
         </main>
         <Footer />
