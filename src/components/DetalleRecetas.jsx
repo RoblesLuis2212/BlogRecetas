@@ -32,12 +32,7 @@ const DetalleRecetas = () => {
                     <div className="col-12 col-md-6">
                         <h4 className='mt-2'>{recetaBuscada.nombreReceta}</h4>
                         <p>Descripcion: {recetaBuscada.descripcion}</p>
-                        <p>Ingredientes: </p>
-                        <ul>
-                            <li>1k de papa</li>
-                            <li>Carne</li>
-                            <li>Cebolla</li>
-                        </ul>
+                        <p>Ingredientes: {recetaBuscada.ingredientes}</p>
                     </div>
                 </div>
             </section>

@@ -11,6 +11,7 @@ import FormularioReceta from "./components/FormularioReceta"
 import { useState, useEffect, useEffectEvent } from "react"
 import { listarRecetasAPI, obtenerRecetaIDAPI } from "./helpers/queries.js"
 import ProtectorAdmin from "./routes/ProtectorAdmin.jsx"
+import Error404 from "./components/Error404.jsx"
 
 function App() {
   const [recetas, setRecetas] = useState([]);
@@ -81,6 +82,8 @@ function App() {
                 path="editar/:id"
                 element={<FormularioReceta titulo="Editar Receta"></FormularioReceta>}
               ></Route>
+            </Route>
+            <Route path="*" element={<Error404></Error404>}>
             </Route>
           </Routes>
         </main>
