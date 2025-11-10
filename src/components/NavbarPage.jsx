@@ -35,9 +35,9 @@ const NavbarPage = ({ usuarioLogueado, setUsuarioLogueado }) => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav>
-                            <Nav.Link as={Link} to="/">Recetas</Nav.Link>
-                            <Nav.Link href="#link">Contacto</Nav.Link>
-                            <Nav.Link href="#link">Acerca De</Nav.Link>
+                            <Nav.Link as={Link} to="/notFound">Recetas</Nav.Link>
+                            <Nav.Link as={Link} to="/notFound">Contacto</Nav.Link>
+                            <Nav.Link as={Link} to="/notFound">Acerca De</Nav.Link>
                         </Nav>
                         <hr className='m-0' />
                         <Nav className='ms-auto'>

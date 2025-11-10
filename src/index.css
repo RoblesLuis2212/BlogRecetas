@@ -106,7 +106,6 @@ main{
 .error-button:hover {
   background-color: #e65100;
 }
-
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);

@@ -31,7 +31,7 @@ const FormularioReceta = ({ titulo }) => {
             if (respuesta.status === 200) {
                 Swal.fire({
                     title: "Receta Actualizada!",
-                    text: `El producto ${data.nombreReceta} se actualizo correctamente`,
+                    text: `La receta ${data.nombreReceta} se actualizo correctamente`,
                     icon: "success",
                 }).then(() => {
                     navigate("/administrador");

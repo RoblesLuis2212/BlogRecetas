@@ -31,8 +31,9 @@ const DetalleRecetas = () => {
                     </div>
                     <div className="col-12 col-md-6">
                         <h4 className='mt-2'>{recetaBuscada.nombreReceta}</h4>
-                        <p>Descripcion: {recetaBuscada.descripcion}</p>
-                        <p>Ingredientes: {recetaBuscada.ingredientes}</p>
+                        <p><span className='text-success fw-bold'>Descripcion:</span> {recetaBuscada.descripcion}</p>
+                        <p><span className='text-success fw-bold'>Ingredientes:</span> {recetaBuscada.ingredientes}</p>
+                        <p><span className='text-success fw-bold'>Preparacion:</span> {recetaBuscada.preparacion}</p>
                     </div>
                 </div>
             </section>
