@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useForm } from 'react-hook-form';
-import { crearReceta } from '../helpers/queries.js';
+import { set, useForm } from 'react-hook-form';
+import { crearReceta, editarRecetaAPI, obtenerRecetaIDAPI } from '../helpers/queries.js';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+
 
 const FormularioReceta = ({ titulo }) => {
     const navigate = useNavigate();
 
-    const { register, handleSubmit, reset, formState: { errors }, clearErrors } = useForm();
+    const { register, handleSubmit, reset, formState: { errors }, clearErrors, setValue } = useForm();
 
     const postValidaciones = async (data) => {
         if (titulo === "Crear Receta") {
@@ -25,8 +26,44 @@ const FormularioReceta = ({ titulo }) => {
             } else {
                 alert("Ocurrio un error al crear la receta")
             }
+        } else if (titulo === "Editar Receta") {
+            const respuesta = await editarRecetaAPI(id, data);
+            if (respuesta.status === 200) {
+                Swal.fire({
+                    title: "Receta Actualizada!",
+                    text: `El producto ${data.nombreReceta} se actualizo correctamente`,
+                    icon: "success",
+                }).then(() => {
+                    navigate("/administrador");
+                });
+            } else {
+                alert("Ocurrio un error al actualizar la receta")
+            }
         }
         console.log(data);
+    }
+
+    const { id } = useParams();
+
+    useEffect(() => {
+        buscarRecetaID();
+    }, [])
+
+    const buscarRecetaID = async () => {
+        if (titulo === "Editar Receta") {
+            const respuesta = await obtenerRecetaIDAPI(id);
+            if (respuesta.status === 200) {
+                const recetaBuscada = await respuesta.json();
+                setValue("nombreReceta", recetaBuscada.nombreReceta);
+                setValue("descripcion", recetaBuscada.descripcion);
+                setValue("ingredientes", recetaBuscada.ingredientes);
+                setValue("preparacion", recetaBuscada.preparacion);
+                setValue("imagen", recetaBuscada.imagen);
+                setValue("categoria", recetaBuscada.categoria)
+            } else {
+                alert("Ocurrio un error al obtener los datos de la receta");
+            }
+        }
     }
 
     return (

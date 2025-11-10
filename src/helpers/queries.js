@@ -87,3 +87,20 @@ export const eliminarRecetaAPI = async (id) => {
     return null;
   }
 };
+
+export const editarRecetaAPI = async (id, receta) => {
+  try {
+    const respuesta = await fetch(`${recetasBackend}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem("usuarioKey")).token,
+      },
+      body: JSON.stringify(receta),
+    });
+    return respuesta;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};

@@ -4,7 +4,8 @@ import { eliminarRecetaAPI, listarRecetasAPI } from '../helpers/queries.js';
 import Swal from 'sweetalert2';
 
 const ItemReceta = ({ itemReceta, setRecetas }) => {
-    const parametroPrueba = "art";
+
+
 
     const borrarReceta = async () => {
         Swal.fire({
@@ -50,7 +51,7 @@ const ItemReceta = ({ itemReceta, setRecetas }) => {
             <td>{itemReceta.ingredientes}</td>
             <td>
                 <div className='d-flex'>
-                    <Button className='btn btn-warning me-2' as={Link} to={`editar/${parametroPrueba}`}>
+                    <Button className='btn btn-warning me-2' as={Link} to={`editar/${itemReceta._id}`}>
                         <i className="bi bi-pencil-fill"></i>
                     </Button>
                     <Button className='btn btn-danger me-2' onClick={borrarReceta}>
