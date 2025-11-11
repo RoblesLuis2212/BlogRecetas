@@ -45,7 +45,6 @@ const ModalLogin = ({ handleShow, show, handleClose, handleShowRegister, setUsua
             });
 
         }
-        console.log(data);
     }
     return (
         <>

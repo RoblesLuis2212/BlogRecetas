@@ -4,7 +4,6 @@ const usuariosBackend = import.meta.env.VITE_API_USUARIOS;
 export const listarRecetasAPI = async () => {
   try {
     const respuesta = await fetch(recetasBackend);
-    console.log(respuesta);
     return respuesta;
   } catch (err) {
     console.error(err);
@@ -15,7 +14,6 @@ export const listarRecetasAPI = async () => {
 export const obtenerRecetaIDAPI = async (id) => {
   try {
     const respuesta = await fetch(`${recetasBackend}/${id}`);
-    console.log(respuesta);
     return respuesta;
   } catch (err) {
     console.error(err);
@@ -49,7 +47,6 @@ export const login = async (usuario) => {
       },
       body: JSON.stringify(usuario),
     });
-    console.log(respuesta);
     return respuesta;
   } catch (err) {
     console.error(err);
