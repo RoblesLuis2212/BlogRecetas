@@ -75,8 +75,8 @@ const FormularioRegistro = () => {
                     {...register("password", {
                         required: "este campo es obligatorio",
                         pattern: {
-                            value: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])\S{8,64}$/,
-                            message: "la contraseña debe contener al menos 8 caracteres, una mayuscula, una minuscula y un numero"
+                            value: /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,64}/,
+                            message: "la contraseña debe contener al menos 8 caracteres, una mayuscula, una minuscula, un numero y un caracter especial"
                         }
                     })}
                     onChange={() => clearErrors("password")}
