@@ -1,16 +1,27 @@
-# React + Vite
+# Blog de Recetas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Web donde podras visualizar tus recetas favoritas gracias al aporte de multiples usuarios, registrate y unete a la comunidad aportando tus conocimientos como cocinero.
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React JS
+- React Hook Form
+- React Router
+- Bootstrap5
+- Sweet Alert
 
-## React Compiler
+## Como ejecutar el proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clonar el repositorio copiando en una terminal el siguiente comando [git clone https://github.com/RoblesLuis2212/Blog-Recetas.git]
+2. Ubicarse en la carpeta e utilizar el comando `npm install`, espere a que finalize la instalacion
+3. Luego ejecutar el comando `npm run dev`, al hacer esto la terminal proporcionara un link que debera ser abierto en un navegador
 
-## Expanding the ESLint configuration
+## Enlaces
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[Ver sitio en vivo](linkdeploy)
+[Repositorio Backend](https://github.com/RoblesLuis2212/Blog-Recetas-Backend.git)
+
+## Autor
+
+- **Robles Luis**
+  [GitHub](https://github.com/RoblesLuis2212)
