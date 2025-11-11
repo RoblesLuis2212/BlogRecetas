@@ -40,7 +40,6 @@ const FormularioReceta = ({ titulo }) => {
                 alert("Ocurrio un error al actualizar la receta")
             }
         }
-        console.log(data);
     }
 
     const { id } = useParams();
