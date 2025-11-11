@@ -43,8 +43,8 @@ const NavbarPage = ({ usuarioLogueado, setUsuarioLogueado }) => {
                         <Nav className='ms-auto'>
                             {usuarioLogueado.usuario ? (
                                 <>
-                                    <Link className="navbar-text text-secondary me-3" to={"/administrador"}>{usuarioLogueado.usuario}</Link>
-                                    <Button className='btn btn-danger' onClick={cerrarSesion}>Cerrar Sesion</Button>
+                                    <Link className="navbar-text d-none text-secondary me-3" to={"/administrador"}>{usuarioLogueado.usuario}</Link>
+                                    <Button className='btn btn-danger d-none' onClick={cerrarSesion}>Cerrar Sesion</Button>
 
                                 </>
                             ) : (
@@ -58,9 +58,18 @@ const NavbarPage = ({ usuarioLogueado, setUsuarioLogueado }) => {
                                 </>
                             )}
                             {/* En dispositivos mobile mostramos links */}
-                            <Nav.Link className='d-lg-none' onClick={handleShow}>Iniciar Sesion</Nav.Link>
-                            {!registro && (
-                                <Nav.Link className='d-lg-none' as={Link} to="/registro">Registrarse</Nav.Link>
+                            {usuarioLogueado.usuario ? (
+                                <>
+                                    <Link className='navbar-text text-secondary me-3' to={"/administrador"}>{usuarioLogueado.usuario}</Link>
+                                    <Button className='btn btn-danger' onClick={cerrarSesion}>Cerrar Sesión</Button>
+                                </>
+                            ) : (
+                                <>
+                                    <Nav.Link className='d-lg-none' onClick={handleShow}>Iniciar Sesion</Nav.Link>
+                                    {!registro && (
+                                        <Nav.Link className='d-lg-none' as={Link} to="/registro">Registrarse</Nav.Link>
+                                    )}
+                                </>
                             )}
                         </Nav>
                     </Navbar.Collapse>
